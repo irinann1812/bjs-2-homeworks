@@ -20,5 +20,13 @@ function solveEquation(a, b, c) {
 console.log(solveEquation);
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+  let interestRateMonth = (percent / 100) / 12;
+  let loanBody = amount - contribution;
+  let monthlyPayment = loanBody * (interestRateMonth + (interestRateMonth / (((1 + interestRateMonth) ** countMonths) - 1)));
+  let totalAmount = monthlyPayment * countMonths;
+  let result = Math.round(totalAmount * 100) / 100;
+
+  return result;
 }
+
+console.log(calculateTotalMortgage);
